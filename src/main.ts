@@ -9,6 +9,7 @@ import { appConfig } from './app/app.config';
 // MSAL
 import { MsalModule } from '@azure/msal-angular';
 import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 (async () => {
@@ -45,7 +46,7 @@ import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
             ]),
           }
         )
-      ),
+      ), provideAnimationsAsync(),
     ]
   })
     .catch(err => console.error(err));

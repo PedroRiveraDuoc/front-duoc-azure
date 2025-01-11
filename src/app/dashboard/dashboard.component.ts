@@ -4,11 +4,13 @@ import { MsalService } from '@azure/msal-angular';
 import { Router } from '@angular/router';
 import { AlertaService, AlertaMedica } from '../services/alerta.service';
 import { HttpClient } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

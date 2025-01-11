@@ -1,28 +1,29 @@
 <div class="login-container">
-    <div class="card">
-        <!-- Encabezado con Logo -->
-        <div class="card-header">
-            <img src="assets/images/logo.png" alt="Logo del Sistema de Alertas Médicas" class="logo">
-            <h1>{{ title }}</h1>
-            <p>Alertas médicas</p>
-        </div>
+  <div class="card">
+      <!-- Encabezado con Logo -->
+      <div class="card-header">
+          <img src="assets/images/logo.png" alt="Logo del Sistema de Alertas Médicas" class="logo">
+          <br>
+          <h1><strong>Proyecto</strong>: Alertas Médicas</h1>
+          <p>Cloud Native</p>
+      </div>
 
-        <!-- Cuerpo -->
-        <div class="card-body">
+      <!-- Cuerpo -->
+      <div class="card-body">
 
-            <!-- Botones -->
+          <!-- Botones -->
             <button class="btn btn-success" (click)="login()" *ngIf="!isLoggedIn">
-                Iniciar Sesión
+              <strong>Iniciar Sesión</strong>
             </button>
-            <button class="btn btn-outline-secondary" (click)="logout()" *ngIf="isLoggedIn">
-                Cerrar Sesión
-            </button>
-        </div>
+          <button class="btn btn-outline-secondary" (click)="logout()" *ngIf="isLoggedIn">
+              Cerrar Sesión
+          </button>
+      </div>
 
-        <!-- Footer -->
-        <div class="card-footer">
-            <p>© 2025 Front-Duoc-Azure. Todos los derechos reservados.</p>
-            <p>TEAM Byron Jaramillo - Pablo Pérez</p>
-        </div>
-    </div>
+      <!-- Footer -->
+      <div class="card-footer">
+          <p>Cloud Native | 2025 © </p>
+          <p>Sebastian Miranda | Pedro Rivera | Grupo 7</p>
+      </div>
+  </div>
 </div>

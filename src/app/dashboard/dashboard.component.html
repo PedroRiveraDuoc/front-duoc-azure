@@ -1,35 +1,48 @@
 <div class="dashboard">
-    <div class="dashboard-header">
-        <img src="assets/images/logo.png" alt="Logo del Sistema de Alertas Médicas" class="logo">
-        <h1>Dashboard - Alertas Médicas</h1>
-        <button class="logout-btn" (click)="logout()">Cerrar Sesión</button>
+  <mat-card class="dashboard-header mat-elevation-z4">
+    <div class="header-content">
+      <img src="assets/images/logo.png" alt="Logo del Sistema de Alertas Médicas" class="logo" />
+      <h1 class="dashboard-title">
+        Gestor Alertas Médicas 🩺
+      </h1>
+      <button class="logout-btn" mat-raised-button color="warn" (click)="logout()">Cerrar Sesión</button>
     </div>
-    <div class="actions">
-        <button (click)="iniciarEscaner()" [disabled]="escaneando">Iniciar Escáner</button>
-        <button (click)="detenerEscaner()" [disabled]="!escaneando">Detener Escáner</button>
-    </div>
+  </mat-card>
 
+  <mat-card class="actions mat-elevation-z2">
+    <div class="actions-content">
+      <button mat-raised-button color="primary" (click)="iniciarEscaner()" [disabled]="escaneando">
+        Iniciar Escáner ▶️
+      </button>
+      <button mat-raised-button color="accent" (click)="detenerEscaner()" [disabled]="!escaneando">
+        Detener Escáner 🟥
+      </button>
+    </div>
+  </mat-card>
+
+  <mat-card class="alertas-table-container mat-elevation-z2">
     <table class="alertas-table">
-        <thead>
-            <tr>
-                <th>Nombre del Paciente</th>
-                <th>Tipo de Alerta</th>
-                <th>Nivel de Alerta</th>
-                <th>Fecha</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let alerta of alertas; let i = index">
-                <td>{{ alerta.nombrePaciente }}</td>
-                <td>{{ alerta.tipoAlerta }}</td>
-                <td>{{ alerta.nivelAlerta }}</td>
-                <td>{{ alerta.fechaAlerta }}</td>
-                <td>
-                    <button (click)="editarAlerta(i)">Editar</button>
-                    <button (click)="eliminarAlerta(i)">Eliminar</button>
-                </td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Nombre del Paciente</th>
+          <th>Tipo de Alerta</th>
+          <th>Nivel de Alerta</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alerta of alertas; let i = index">
+          <td>{{ alerta.nombrePaciente }}</td>
+          <td>{{ alerta.tipoAlerta }}</td>
+          <td>{{ alerta.nivelAlerta }}</td>
+          <td>{{ alerta.fechaAlerta }}</td>
+          <td>
+            <button mat-raised-button color="primary" (click)="editarAlerta(i)">Editar</button>
+            <button mat-raised-button color="warn" (click)="eliminarAlerta(i)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
     </table>
+  </mat-card>
 </div>
