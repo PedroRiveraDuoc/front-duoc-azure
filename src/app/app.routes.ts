@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { FormPacienteComponent } from './form-paciente/form-paciente.component';
 
 export const routes: Routes = [
 
@@ -15,6 +16,10 @@ export const routes: Routes = [
         path: 'dashboard',
         loadComponent: () => import('./dashboard/dashboard.component').then(c => c.DashboardComponent),
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'paciente',
+        loadComponent: () => import('./form-paciente/form-paciente.component').then(c => c.FormPacienteComponent),
     }
 
 ];

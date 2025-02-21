@@ -29,9 +29,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.msalService.loginPopup().subscribe({
-      next: (result) => {
-        console.log('Login success:', result);
-
+      next: (result) => {        
+          localStorage.setItem('token', result.idToken);
         // Establece la cuenta activa
         const account = this.msalService.instance.getAllAccounts()[0];
         this.msalService.instance.setActiveAccount(account);

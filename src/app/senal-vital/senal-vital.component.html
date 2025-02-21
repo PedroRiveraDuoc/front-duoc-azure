@@ -1,0 +1,36 @@
+<main class="container mt-5">
+    <h3>Signos Vitales</h3>
+    <div class="border_form">
+        <form id="registerForm" (ngSubmit)="submit()" [formGroup]="form" class="form">
+          <mat-form-field appearance="fill">
+            <mat-label>Temperatura</mat-label>
+            <input matInput formControlName="temperatura" />          
+          </mat-form-field>
+      
+          <mat-form-field appearance="outline">
+            <mat-label>Pulso</mat-label>
+            <input matInput formControlName="pulso" />          
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Ritmo Respiratorio</mat-label>
+            <input matInput formControlName="ritmoRespiratorio" />          
+          </mat-form-field>
+      
+          <mat-form-field appearance="outline">
+            <mat-label>Presion Arterial</mat-label>
+            <input matInput formControlName="presionArterial" />          
+          </mat-form-field>
+      
+          <mat-form-field appearance="outline">
+            <mat-label>Comentario</mat-label>
+            <input matInput formControlName="comentario" />          
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Estado del Paciente</mat-label>
+            <input matInput formControlName="pacienteEstado" />          
+          </mat-form-field>
+          <button mat-raised-button>Crear</button>
+        </form>
+    </div>
+  </main>
+  

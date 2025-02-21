@@ -12,37 +12,36 @@
   <mat-card class="actions mat-elevation-z2">
     <div class="actions-content">
       <button mat-raised-button color="primary" (click)="iniciarEscaner()" [disabled]="escaneando">
-        Iniciar Escáner ▶️
-      </button>
-      <button mat-raised-button color="accent" (click)="detenerEscaner()" [disabled]="!escaneando">
-        Detener Escáner 🟥
+        Agregar Paciente
       </button>
     </div>
   </mat-card>
 
   <mat-card class="alertas-table-container mat-elevation-z2">
-    <table class="alertas-table">
+    <table class="alertas-table" *ngFor="let item of paciente">
       <thead>
         <tr>
           <th>Nombre del Paciente</th>
-          <th>Tipo de Alerta</th>
-          <th>Nivel de Alerta</th>
-          <th>Fecha</th>
-          <th>Acciones</th>
+          <th>Rut</th>
+          <th>Sexo</th>
+          <th>Fecha Nacimiento</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let alerta of alertas; let i = index">
-          <td>{{ alerta.nombrePaciente }}</td>
-          <td>{{ alerta.tipoAlerta }}</td>
-          <td>{{ alerta.nivelAlerta }}</td>
-          <td>{{ alerta.fechaAlerta }}</td>
+        <tr >
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.paciente_rut }}</td>
+          <td>{{ item.sexo }}</td>          
+          <td>{{ item.fechaNacimiento  | date }}</td>
           <td>
-            <button mat-raised-button color="primary" (click)="editarAlerta(i)">Editar</button>
-            <button mat-raised-button color="warn" (click)="eliminarAlerta(i)">Eliminar</button>
+            <button  mat-raised-button (click)="consultarEstado()">Consultar Estado</button>
+            <button mat-raised-button color="warn" (click)="eliminarAlerta(item.id)" >Eliminar</button>
           </td>
         </tr>
       </tbody>
     </table>
   </mat-card>
 </div>
+
+
+
