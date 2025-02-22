@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
   intervaloID: any;
   readonly dialog = inject(MatDialog);
   paciente: any;
+  alerta:any
 
   constructor(
     private msalService: MsalService,
@@ -63,9 +64,12 @@ export class DashboardComponent implements OnInit {
       next: (response) => {
         console.log(response);
       },
+      complete: () => {
+        window.location.reload();
+      }
     });
   }
-
+  mostrarAlerta: boolean = false;
   logout(): void {
     this.msalService.logoutPopup().subscribe({
       next: () => {
@@ -84,9 +88,11 @@ export class DashboardComponent implements OnInit {
       presionArterial: '120/80',
       comentario: 'Sin complicacioness',
       pacienteEstado: 'Crítico',
-    };
+    };    
     this.service.crearEstado(1, signo).subscribe({
       next: (response) => {
+        response= this.alerta
+        this.mostrarAlerta = true;
         console.log(response);
       },
     });

@@ -1,17 +1,31 @@
 <div class="dashboard">
   <mat-card class="dashboard-header mat-elevation-z4">
     <div class="header-content">
-      <img src="assets/images/logo.png" alt="Logo del Sistema de Alertas Médicas" class="logo" />
-      <h1 class="dashboard-title">
-        Gestor Alertas Médicas 🩺
-      </h1>
-      <button class="logout-btn" mat-raised-button color="warn" (click)="logout()">Cerrar Sesión</button>
+      <img
+        src="assets/images/logo.png"
+        alt="Logo del Sistema de Alertas Médicas"
+        class="logo"
+      />
+      <h1 class="dashboard-title">Gestor Alertas Médicas 🩺</h1>
+      <button
+        class="logout-btn"
+        mat-raised-button
+        color="warn"
+        (click)="logout()"
+      >
+        Cerrar Sesión
+      </button>
     </div>
   </mat-card>
 
   <mat-card class="actions mat-elevation-z2">
     <div class="actions-content">
-      <button mat-raised-button color="primary" (click)="iniciarEscaner()" [disabled]="escaneando">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="iniciarEscaner()"
+        [disabled]="escaneando"
+      >
         Agregar Paciente
       </button>
     </div>
@@ -28,14 +42,22 @@
         </tr>
       </thead>
       <tbody>
-        <tr >
+        <tr>
           <td>{{ item.nombre }}</td>
           <td>{{ item.paciente_rut }}</td>
-          <td>{{ item.sexo }}</td>          
-          <td>{{ item.fechaNacimiento  | date }}</td>
+          <td>{{ item.sexo }}</td>
+          <td>{{ item.fechaNacimiento | date }}</td>
           <td>
-            <button  mat-raised-button (click)="consultarEstado()">Consultar Estado</button>
-            <button mat-raised-button color="warn" (click)="eliminarAlerta(item.id)" >Eliminar</button>
+            <button mat-raised-button (click)="consultarEstado()">
+              Consultar Estado
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="eliminarAlerta(item.id)"
+            >
+              Eliminar
+            </button>
           </td>
         </tr>
       </tbody>
@@ -43,5 +65,29 @@
   </mat-card>
 </div>
 
+<button mat-raised-button color="accent" (click)="mostrarAlerta = true">
+  Mostrar Alerta
+</button>
 
-
+<div
+  *ngIf="mostrarAlerta"
+  class="alert alert-danger alert-dismissible fade show mt-3 alerta-flotante"
+  role="alert"
+>
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <h1>{{ this.alerta.alerta }}</h1>
+    <h2>{{ this.alerta.estado }}</h2>
+    <p>{{ this.alerta.paciente }}</p>
+    <p>{{ this.alerta.pulso }}</p>
+    <p>{{ this.alerta.ritmoRespiratorio }}</p>
+    <p>{{ this.alerta.presionArterial }}</p>
+    <p>{{ this.alerta.pacienteEstado }}</p>
+    <p>{{ this.alerta.comentario }}</p>
+  </div>
+  <button
+    type="button"
+    class="btn-close"
+    (click)="mostrarAlerta = false"
+    aria-label="Close"
+  ></button>
+</div>
