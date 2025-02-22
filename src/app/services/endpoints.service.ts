@@ -9,6 +9,8 @@ export class EndpointsService {
   url: string = 'http://localhost:8084';
   tokens: string | null = localStorage.getItem('token');
   constructor(private http: HttpClient) {}
+
+  
   mostrarPaciente() {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.tokens}`,
