@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
-import { FormPacienteComponent } from './form-paciente/form-paciente.component';
 
 export const routes: Routes = [
 

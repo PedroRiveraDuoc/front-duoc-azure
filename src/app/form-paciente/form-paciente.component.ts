@@ -18,7 +18,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-form-paciente',
   imports: [
-    NgIf,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,

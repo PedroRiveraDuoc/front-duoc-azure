@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,7 @@ export class EndpointsService {
   tokens: string | null = localStorage.getItem('token');
   constructor(private http: HttpClient) {}
 
-  
+
   mostrarPaciente() {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.tokens}`,
@@ -22,9 +21,10 @@ export class EndpointsService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.tokens}`,
     });
-    const endpoint = `${this.url}/eliminarPaciente(${id})`;
+    const endpoint = `${this.url}/eliminarPaciente/${id}`;
     return this.http.delete(endpoint, { headers });
   }
+
   crearPaciente(paciente: any) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.tokens}`,
@@ -37,6 +37,6 @@ export class EndpointsService {
       Authorization: `Bearer ${this.tokens}`,
     });
     const endpoint = `${this.url}/crear/${id}`;
-    return this.http.post(endpoint, signo, { headers });
+    return this.http.post(endpoint, signo, { headers, responseType: 'json' });
   }
 }

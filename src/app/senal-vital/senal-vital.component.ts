@@ -17,7 +17,6 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-senal-vital',
   standalone: true,
   imports: [
-    NgIf,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
