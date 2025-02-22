@@ -88,10 +88,11 @@ export class DashboardComponent implements OnInit {
       presionArterial: '120/80',
       comentario: 'Sin complicacioness',
       pacienteEstado: 'Crítico',
-    };    
+    };
     this.service.crearEstado(1, signo).subscribe({
       next: (response) => {
-        response= this.alerta
+        this.alerta = response;
+        console.log(response);
         this.mostrarAlerta = true;
         console.log(response);
       },
